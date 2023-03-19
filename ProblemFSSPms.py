@@ -51,7 +51,7 @@ class fssp:
     
     def evaluate( self,ind):
         self.FEs = self.FEs + 1
-        solution = ind.individual #convert random key representation to permutation representation
+        solution = ind #convert random key representation to permutation representation
         
       #  times = np.loadtxt(self.path, dtype = int)
      #   self.processingTimes = np.transpose(self.processingTimes)
@@ -64,7 +64,7 @@ class fssp:
                 completion_times[j,m] = self.processingTimes[solution[j], m] + max(completion_times[j,m-1],completion_times[j-1,m])
 
         fits = completion_times.tolist()
-        return fits[n_jobs-1][n_machines-1],
+        return fits[n_jobs-1][n_machines-1]
     
     def evaluate_vns( self,ind):
         ind = np.array(ind, dtype=np.int32)
